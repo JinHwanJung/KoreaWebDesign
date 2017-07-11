@@ -15,4 +15,4 @@ six==1.10.0
 
 ![홈페이지메인화면](/img/index.PNG)
 
-[VEDIO](https://youtu.be/lMpCfK1UeiY)
+[시연영상 링크](https://youtu.be/lMpCfK1UeiY)
