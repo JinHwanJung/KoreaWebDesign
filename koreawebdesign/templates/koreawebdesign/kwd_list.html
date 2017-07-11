@@ -1,0 +1,67 @@
+{% extends "base.html" %} 
+{% load staticfiles %} 
+{% block extrastyle %}{% static "koreawebdesign/css/list.css" %}{% endblock %} 
+
+{% block content %}
+<div id="rightContent">
+    
+    <ul class="color_list">
+        <li><a class="brown" href="#"></a></li>
+        <li><a class="red" href="#"></a></li>
+        <li><a class="orange" href="#"></a></li>
+        <li><a class="yellow" href="#"></a></li>
+        <li><a class="mint" href="#"></a></li>
+        <li><a class="green" href="#"></a></li>
+        <li><a class="blue" href="#"></a></li>
+        <li><a class="purple" href="#"></a></li>
+        <li><a class="pink" href="#"></a></li>
+        <li><a class="white" href="#"></a></li>
+        <li><a class="grey" href="#"></a></li>
+        <li><a class="black" href="#"></a></li>
+    </ul>
+    <p class="tag">
+        {% load tagging_tags %}
+        {% tag_cloud_for_model koreawebdesign.KWD as tags with steps=6 min_count=1 distribution=log %}
+        {% for tag in tags %}
+            <span class="tag-{{tag.font_size}}">
+                <a href="{% url 'koreawebdesign:kwd_tagged_object_list' tag.name %}">{{tag.name}}</a>
+            </span>
+        {% endfor %}
+    </p>
+    <ul class="pic_list">
+        {% if page_obj.number is 1 %}
+            {% for object in title_object %}
+                <li>
+                    <a class="post-big" href="{{ object.get_absolute_url }}">
+                    <img width="492px" height="308px" src="{{object.image.url}}"/>
+                </a>
+            </li>
+        {% endfor %}
+        {% endif %}
+
+        {% for object in object_list %}
+        <li>
+            <a class="post-small" href="{{ object.get_absolute_url }}">
+                <img width="125" height="80" src="{{object.image.url}}"/>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="paging-navigation">
+        {% if page_obj.has_previous %}
+            <a href="{% url "koreawebdesign:kwd_list" page_obj.previous_page_number %}" class="prev">PREV</a>
+        {% endif %}
+
+        {% for page in range %}
+            {% if page == page_obj.number %}
+                <span class="page_numbers current">{{page_obj.number}}</span>
+            {% else %}
+                <a href="{% url "koreawebdesign:kwd_list" page%}" class="page_numbers">{{page}}</a>
+            {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+            <a href="{% url "koreawebdesign:kwd_list" page_obj.next_page_number %}" class="next">NEXT</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %} 
+{% load staticfiles %} 
+{% block extrastyle %}{% static "koreawebdesign/css/search.css" %}{% endblock %} 
+
+{% block content %}
+<div id="rightContent">
+    {% if object_list %}
+        <span class="search_word">{{search_word}}</span><b>에 대한 검색 결과</b>
+        <ul>
+            <li>
+                <a href="">웹사이트({{object_list.count}})</a>
+            </li>
+        <ul>
+        <br>
+        <ul class="pic_list">
+        {% for object in object_list %}
+        <li>
+            <a class="post-small" href="{{ object.get_absolute_url }}">
+                <img width="125" height="80" src="{{object.image.url}}"/>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>       
+    {% elif search_word %}
+        <div class="page_content">
+            <p>찾지 못함</p>
+            <p>죄송하지만 검색어와 일치하는 것이 없습니다. 다른 검색어로 다시 시도해보세요.</p>
+            <form action="." method="post">
+                {% csrf_token %}
+                {{form}}
+            </form>
+        </div>
+    {% else %}
+        <div class="page_content">
+            <form action="." method="post">
+                {% csrf_token %}
+                {{form}}
+            </form>
+        </div>
+    {% endif%}
+</div>
+{% endblock %}

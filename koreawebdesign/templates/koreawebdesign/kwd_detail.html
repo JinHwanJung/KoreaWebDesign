@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block extrastyle %}{% static "koreawebdesign/css/detail.css" %}{% endblock %}
+
+{% block content %}
+<div id="article">
+    <img src="{{object.image.url}}"/><br>
+    {{object.modify_date}}<br>
+    {{object.title}}<br>
+    {{object.url}}<br>
+    {% for obj in object.category.all %}
+        {{ obj }}
+    {% endfor %}
+    <div>
+        <b>TAGS:</b>
+        {% load tagging_tags %}
+        {% tags_for_object object as tags%}
+        {% for tag in tags %}
+            <a href="{% url 'koreawebdesign:kwd_tagged_object_list' tag.name %}">{{tag.name}}</a>
+        {% endfor %}
+        {% load disqus_tags %}
+        {% disqus_show_comments %}
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <title>Korea Web Design</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% block extrastyle %}{% endblock %}"/>
+</head>
+
+<body>
+    <div id="wrap">
+    <header>
+        <div id="logo">
+            <a href="{% url 'koreawebdesign:index' %}" title="처음으로">
+                <img width="16" height="16" src="{% static "img/home.png"%}"/><span id="res"></span>
+            </a>
+        </div>
+        <div id="search">
+            <a href="{% url 'koreawebdesign:search' %}" title="검색창 열기">
+                <img width="16" height="16" src="{% static "img/search.png"%}"/><span id="res"></span>
+            </a>
+        </div>
+        <div id="site_register_menu">
+            <a href="#" title="사이트 등록하러가기"><span>사이트 등록<span><span id="res"></span></a>
+        </div>
+        <div id="category_menu">
+           <ul id="menu_top">
+               <li>
+                   <a href="" class="category"><span>웹사이트 카테고리</span><span id="res"></span></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div id="content_wrap">
+        <div id="left_content">
+            <div class="widget_login"> 
+                {% if user.is_active %}
+                    <div class="user-avatar">
+                        <img class="avatar_img" src="{% static 'img/avatar_default.png'%}" />
+                    </div>
+                    <p class="avatar_text">{{user.username}}({{user.username}})</p>
+                    <div class="avatar_link">
+                        <a title="프로필 편집" href="#" class="sidebutton_profile_edit"></a>
+                        <a title="로그아웃" href="{% url 'm_logout' %}?next=/" class="sidebutton_logout"></a>
+                    </div>
+                {% else %}
+                <form action="{% url 'm_login' %}" method="post">
+                    {% csrf_token %}
+                    <span>사용자 계정(ID)</span><br/>
+                    <input type="text" name="username" size="20"/><br/>
+                    <span>비밀번호</span><br/>
+                    <input type="password" name="password" size="20"/>
+                    <p class="check_remember">
+                        <input name="remember" type="checkbox" value="remember"/>
+                        <span>기억하기</span>
+                    </p>
+                    <input id="login_button" type="submit" value="로그인"/>
+                    <input type="hidden" name="next" value="{% url 'koreawebdesign:index' %}"/>
+                    <ul>
+                        <li><a href="">회원가입</a></li>
+                        <li><a href="">비밀번호 분실</a></li>
+                    </ul>
+                </form>
+                {% endif %}
+            </div><!--wedget login-->
+            <div class="sub_nav">
+                <ul>
+                    <li><a href="">웹사이트</a></li>
+                    <li><a href="">디자이너의 즐겨찾기</a></li>
+                    <li><a href="">블로그</a></li>
+                </ul>
+            </div>
+            <div class="request">
+                <p><a href="" id="request">문의/요청하기</a></p>
+            </div>
+        </div>
+        <div id="content">
+            {% block content %} {% endblock %}
+        </div>
+        <footer>
+            <span>디자이너가 디자인이 즐거울 수 있도록...</span><br/>
+            <span class="copyright">© 2017 Korea Web Design. All rights reserved.</span>
+        </footer>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% extends "base.html" %} 
+{% load staticfiles %} 
+{% block extrastyle %}{% static "koreawebdesign/css/list.css" %}{% endblock %} 
+
+{% block content %}
+<div id="rightContent">
+    <div class="tag_result">
+        <h1 class="tag_name">TAG : {{tag.name}}</h1>
+    </div>
+    <ul class="pic_list">
+        {% for object in object_list %}
+        <li>
+            <a class="post-small" href="{{ object.get_absolute_url }}">
+                <img width="125" height="80" src="{{object.image.url}}"/>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="paging-navigation">
+        {% if page_obj.has_previous %}
+            <a href="{% url "koreawebdesign:kwd_list" page_obj.previous_page_number %}" class="prev">PREV</a>
+        {% endif %}
+
+        {% for page in range %}
+            {% if page == page_obj.number %}
+                <span class="page_numbers current">{{page_obj.number}}</span>
+            {% else %}
+                <a href="{% url "koreawebdesign:kwd_list" page%}" class="page_numbers">{{page}}</a>
+            {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+            <a href="{% url "koreawebdesign:kwd_list" page_obj.next_page_number %}" class="next">NEXT</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

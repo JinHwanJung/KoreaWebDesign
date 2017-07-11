@@ -1,0 +1,10 @@
+#article{
+    width:1000px;
+    margin:40px auto 0 auto;
+}
+
+#article>img{
+    display:block;
+    width:860px; height:535px;
+    margin:0 auto;
+}

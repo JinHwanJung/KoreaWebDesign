@@ -1,0 +1,152 @@
+#rightContent{
+    width:100%;
+    padding-left:40px;
+}
+#rightContent .pic_list{
+    overflow: hidden;
+}
+#rightContent .post-big{
+    width:494px;
+    height:332px;
+    margin-right:20px;
+    margin-bottom:20px;
+    list-style:none;
+    float:left;
+}
+#rightContent .post-small{
+    width:129px; height:103px;
+    list-style:none;
+    margin-right:15px;
+    margin-bottom:20px;
+    float:left;
+}
+
+#rightContent .color_list{
+    overflow:hidden;
+}
+#rightContent .color_list li{
+    margin:0 2px 2px 0;
+    line-height: 1;
+    float:left;
+    list-style:none;
+    border:0;
+    outline:0;
+    box-sizing: border-box;
+    display:list-item;
+}
+#rightContent .color_list{
+    height:40px;
+}
+#rightContent .color_list li a{
+    width:16px; height:16px; display:inline-block;  margin:13px 5px 0 0; border-radius: 100%; line-height:0;
+}
+#rightContent .color_list li a.brown{
+    background-color:#cc6600;
+}
+#rightContent .color_list li a.red{
+    background-color:#ff0000;
+}
+#rightContent .color_list li a.orange{
+    background-color:#f68249;
+}
+#rightContent .color_list li a.yellow{
+    background-color:#ffc600;
+}
+#rightContent .color_list li a.mint{
+    background-color:#3eb4a7;
+}
+#rightContent .color_list li a.green{
+    background-color:#008e0d;
+}
+#rightContent .color_list li a.blue{
+    background-color:#2a54ee;
+}
+#rightContent .color_list li a.purple{
+    background-color:#8a33c6;
+}
+#rightContent .color_list li a.pink{
+    background-color:#ec008c;
+}
+#rightContent .color_list li a.white{
+    background-color:#fff;
+}
+#rightContent .color_list li a.grey{
+    background-color:#717171;
+}
+#rightContent .color_list li a.black{
+    background-color:#1b1a19;
+}
+#rightContent .tag{
+    width:95%;
+    min-height:48px;
+    border-top:1px dashed #c6ced4;
+    border-bottom:1px dashed #c6ced4;
+    margin-bottom:20px;
+}
+
+#rightContent .paging-navigation{
+    width:100%; height:22px;
+    margin: 30px 0;
+    text-align:center;
+}
+.paging-navigation .page_numbers, .prev, .next{
+    display:inline-block;
+    margin-right:2px;
+    padding-top:1px;
+    vertical-align: top;
+    line-height:18px;
+    font-size:10px;
+    background-color:#adadad;
+    color:#fff;
+    font-weight:900;
+    text-decoration:none;
+}
+.paging-navigation .page_numbers{
+    width:30px; height:20px;
+    border-radius:20px;
+}
+.paging-navigation .prev, .next{
+    width:40px; height:20px;
+    border-radius:2px;
+}
+.paging-navigation .page_numbers.current{
+    background-color:#01afd1;
+}
+
+#rightContent .tag .tag-1{
+    font-size:10pt;
+}
+#rightContent .tag .tag-2{
+    font-size:11pt;
+}
+#rightContent .tag .tag-3{
+    font-size:12pt;
+}
+#rightContent .tag .tag-4{
+    font-size:13pt;
+}
+#rightContent .tag .tag-5{
+    font-size:14pt;
+}
+#rightContent .tag .tag-6{
+    font-size:15pt;
+}
+#rightContent .tag a{
+    text-decoration:none;
+    color:#444;
+    vertical-align: baseline;
+}
+#rightContent .tag span::after{
+    font-size:10pt;
+    content:','
+}
+#rightContent .tag span:nth-last-child(1)::after{
+    content:''
+}
+.tag_result{
+    height:82px;
+}
+.tag_result .tag_name{
+    line-height:82px;
+    font-weight: bold
+}

@@ -1,0 +1,24 @@
+#rightContent{
+    margin:30px;
+    height:420px;
+}
+.search_word{
+    font-weight: bold;
+    color:red;
+}
+
+#rightContent .pic_list{
+    overflow: hidden;
+}
+#rightContent .post-small{
+    width:129px; height:103px;
+    list-style:none;
+    margin-right:15px;
+    margin-bottom:20px;
+    float:left;
+}
+.page_content{
+    width: 700px;
+    height:300px;
+    margin:100px auto 0px auto;
+}
